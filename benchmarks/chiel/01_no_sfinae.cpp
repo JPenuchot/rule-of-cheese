@@ -10,7 +10,7 @@ struct some_other_struct {};
 #define INSTANTIATE(z, n, text)                                                \
   template <> struct some_struct<n> {};
 
-#define USE(z, n, text) some_struct<BOOST_PP_LIMIT_REPEAT + 1> some_var_##n;
+#define USE(z, n, text) some_other_struct some_var_##n;
 
 BOOST_PP_REPEAT(BENCHMARK_SIZE, INSTANTIATE, 0)
 
