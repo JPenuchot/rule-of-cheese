@@ -7,7 +7,7 @@ namespace grapher {
 
 entry_t extract_entry(raw_entry_t const &re) {
   entry_t res{
-      .name{},
+      .size = -1,
       .execute_compiler = -1,
       .frontend = -1,
       .source = -1,
@@ -28,7 +28,7 @@ entry_t extract_entry(raw_entry_t const &re) {
   };
 
   auto const &[p, js] = re;
-  res.name = p.filename().replace_extension("");
+  res.size = std::atoi(p.filename().replace_extension("").c_str());
 
   for (auto e : js["traceEvents"]) {
     auto const &e_name = e["name"];
@@ -96,7 +96,7 @@ std::vector<entry_t> extract_category(std::filesystem::path const &cat) {
   }
 
   std::sort(res.begin(), res.end(),
-            [](auto const &a, auto const &b) { return a.name < b.name; });
+            [](auto const &a, auto const &b) { return a.size < b.size; });
   return res;
 }
 

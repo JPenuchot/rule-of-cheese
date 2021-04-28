@@ -1,4 +1,6 @@
+#include "grapher/core.hpp"
 #include <algorithm>
+#include <cstdlib>
 #include <iostream>
 #include <string>
 
@@ -29,18 +31,19 @@ namespace grapher {
 sciplot::Plot make_plot(category_t const &cat) {
   namespace sp = sciplot;
 
+  // Select what to plot:
   auto const measures = {
       // execute_compiler_v,
       // frontend_v,
       // backend_v,
       // run_pass_v,
-      source_v,
+      // source_v,
       instantiate_function_v,
-      parse_class_v,
-      instantiate_class_v,
-      opt_module_v,
-      parse_template_v,
-      opt_function_v,
+      // parse_class_v,
+      // instantiate_class_v,
+      // opt_module_v,
+      // parse_template_v,
+      // opt_function_v,
       per_module_passes_v,
       perform_pending_instantiations_v,
       run_loop_pass_v,
@@ -52,6 +55,7 @@ sciplot::Plot make_plot(category_t const &cat) {
   auto const &[name, entries] = cat;
   sp::Plot plot;
 
+  // Adjust if graph doesn't fit or looks weird
   constexpr std::size_t plot_w = 800;
   constexpr std::size_t plot_h = 400;
 
@@ -59,20 +63,22 @@ sciplot::Plot make_plot(category_t const &cat) {
   plot.size(plot_w, plot_h);
   plot.xlabel("Benchmark Size Factor");
   plot.ylabel("Time (µs)");
-  plot.palette("spectral");
 
   using vec = std::vector<measure_t>;
 
   vec x;
 
   for (auto const &e : entries) {
-    x.push_back(std::atoi(e.name.c_str()));
+    x.push_back(e.size);
   }
 
+  // No entries ? No plot
   if (x.empty()) {
-    return sp::Plot();
+    std::cerr << "Empty plot for category " << name << ".\n";
+    std::exit(1);
   }
 
+  // Initializing vectors for incremental curve drawing
   vec ylow(x.size());
   vec yhigh(x.size(), 0.);
 
@@ -98,9 +104,14 @@ void graph(categories_t const &cats, std::filesystem::path const &p) {
   namespace sp = sciplot;
   std::vector<sp::Plot> plots;
 
-  for (auto const &cat : cats) {
+  for (category_t const &cat : cats) {
+    auto const &[name, entries] = cat;
+    if (entries.empty()) {
+      std::cout << "Warning: category " << name << " is empty.\n";
+      continue;
+    }
+
     auto plot = make_plot(cat);
-    plot.show();
     std::filesystem::create_directories(p);
     plot.save(p / (std::get<0>(cat) + ".svg"));
   }

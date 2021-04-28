@@ -3,7 +3,7 @@
 namespace grapher {
 
 std::ostream &to_csv(std::ostream &o, entry_t const &e) {
-  o << ',' << e.name << ',' << e.execute_compiler << ',' << e.frontend << ','
+  o << ',' << e.size << ',' << e.execute_compiler << ',' << e.frontend << ','
     << e.source << ',' << e.instantiate_function << ',' << e.parse_class << ','
     << e.instantiate_class << ',' << e.backend << ',' << e.opt_module << ','
     << e.parse_template << ',' << e.opt_function << ',' << e.run_pass << ','

@@ -19,7 +19,7 @@ using measure_t = long;
 
 /// Contains all the metrics for a given benchmark
 struct entry_t {
-  std::string name;
+  int size;
 
   measure_t execute_compiler;
   measure_t frontend;
