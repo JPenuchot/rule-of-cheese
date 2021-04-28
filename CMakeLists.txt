@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 project(rule-of-cheese)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_CXX_STANDARD 20)
 
 option(ROC_ENABLE_TESTING "Enable testing." 0)
 
