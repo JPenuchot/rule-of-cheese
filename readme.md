@@ -21,3 +21,4 @@ https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-17-2017_wed
 
 - [Rule of Chiel](https://www.youtube.com/watch?v=EtU4RDCCsiU&t=491s)
 - [Metabench](https://github.com/ldionne/metabench)
+- [Overhead of function signatures](https://www.youtube.com/watch?v=TyiiNVA1syk)
