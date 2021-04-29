@@ -8,35 +8,35 @@ include(cmake/benchmarking.cmake)
 # Rule of Chiel benchmarks
 # ==============================================================================
 
-# add_benchmark_range("00_sfinae"
+# add_benchmark_range("chiel.00_sfinae"
 #   "chiel/00_sfinae.cpp"
 #   16 256 16)
 
-# add_benchmark_range("01_no_sfinae"
+# add_benchmark_range("chiel.01_no_sfinae"
 #   "chiel/01_no_sfinae.cpp"
 #   16 256 16)
 
-# add_benchmark_range("10_function_template_instantiation"
+# add_benchmark_range("chiel.10_function_template_instantiation"
 #   "chiel/10_function_template_instantiation.cpp"
 #   16 256 16)
 
-# add_benchmark_range("20_type_instantiation"
+# add_benchmark_range("chiel.20_type_instantiation"
 #   "chiel/20_type_instantiation.cpp"
 #   16 256 16)
 
-# add_benchmark_range("30_alias_call"
+# add_benchmark_range("chiel.30_alias_call"
 #   "chiel/30_alias_call.cpp"
 #   16 256 16)
 
-# add_benchmark_range("40_type_parameter_addition"
+# add_benchmark_range("chiel.40_type_parameter_addition"
 #   "chiel/40_type_parameter_addition.cpp"
 #   16 256 16)
 
-# add_benchmark_range("50_alias_call_parameter_addition"
+# add_benchmark_range("chiel.50_alias_call_parameter_addition"
 #   "chiel/50_alias_call_parameter_addition.cpp"
 #   16 256 16)
 
-# add_benchmark_range("60_memoized_type_lookup"
+# add_benchmark_range("chiel.60_memoized_type_lookup"
 #   "chiel/60_memoized_type_lookup.cpp"
 #   16 256 16)
 
