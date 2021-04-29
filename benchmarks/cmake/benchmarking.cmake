@@ -6,6 +6,8 @@
 
 add_custom_target(benchmark-all)
 
+# This is mostly because Boost Preprocessor is widely used across benchmarks
+find_package(Boost REQUIRED)
 
 ## =============================================================================
 ## Creates a library target for a file
@@ -27,9 +29,13 @@ function(add_compile_benchmark target_name output source size)
       CXX_COMPILER_LAUNCHER
         "${CMAKE_BINARY_DIR}/tooling/time-trace-wrapper;${output}")
 
+  # Pass benchmark size
   set_target_properties(${target_name}
     PROPERTIES
       COMPILE_DEFINITIONS "BENCHMARK_SIZE=${size}")
+
+  # Boost Preprocessor
+  target_include_directories(${target_name} PUBLIC Boost_INCLUDE_DIRS)
 
   add_dependencies(benchmark-all ${target_name})
 endfunction(add_compile_benchmark)
@@ -37,26 +43,29 @@ endfunction(add_compile_benchmark)
 
 ## =============================================================================
 ## Add a benchmark range for a given source.
-## - output: Output folder path
-## - prefix: Prefix for target name
+## - name: Name of the benchmark
 ## - source: Source file
 ## - begin: Size iteration begin
 ## - end: Size iteration end
 ## - step: Size iteration step
 
-function(add_benchmark_range output prefix source begin end step)
-  add_custom_target("${prefix}all")
-  add_dependencies(benchmark-all "${prefix}all")
+function(add_benchmark_range name source begin end step)
+  add_custom_target("${name}-all")
+  add_dependencies(benchmark-all "${name}-all")
 
-  file(MAKE_DIRECTORY ${output})
   foreach(size RANGE ${begin} ${end} ${step})
     add_compile_benchmark(
-      "${prefix}${size}"
-      "${output}/${size}.json"
+      "_${name}-${size}"
+      "${name}/${size}.json"
       "${source}"
       "${size}")
-    add_dependencies("${prefix}all" "${prefix}${size}")
+    add_dependencies("${name}-all" "_${name}-${size}")
   endforeach()
+
+  add_custom_target("${name}-graph"
+    COMMAND
+    benchmark-grapher graphs "${PROJECT_BINARY_DIR}/${name}"
+    DEPENDS "${name}-all")
 endfunction(add_benchmark_range)
 
 
