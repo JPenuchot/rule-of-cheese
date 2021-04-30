@@ -17,6 +17,15 @@ https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-17-2017_wed
 - Adding a parameter to an alias call
 - Looking up a memoized type
 
+## Notes on benchmarking
+
+Get yourself a tight benchmarking environment, follow
+[`pyperf`'s system tuning guide](
+https://pyperf.readthedocs.io/en/latest/system.html).
+
+You may also just run `sudo pyperf system tune`.
+And close that web browser while you're at it.
+
 ## References
 
 - [Rule of Chiel](https://www.youtube.com/watch?v=EtU4RDCCsiU&t=491s)
