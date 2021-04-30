@@ -5,6 +5,7 @@
 ### ============================================================================
 
 add_custom_target(benchmark-all)
+add_custom_target(graph-all)
 
 # This is mostly because Boost Preprocessor is widely used across benchmarks
 find_package(Boost REQUIRED)
@@ -66,6 +67,8 @@ function(add_benchmark_range name source begin end step)
     COMMAND
     benchmark-grapher "graphs" "${name}"
     DEPENDS "${name}-all")
+
+  add_dependencies(graph-all "${name}-graph")
 endfunction(add_benchmark_range)
 
 
