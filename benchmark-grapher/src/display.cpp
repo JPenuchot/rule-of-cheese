@@ -38,19 +38,16 @@ sciplot::Plot make_plot(category_t const &cat) {
       // backend_v,
       // run_pass_v,
       // source_v,
-      instantiate_function_v,
-      // parse_class_v,
-      // instantiate_class_v,
-      // opt_module_v,
-      // parse_template_v,
-      // opt_function_v,
-      per_module_passes_v,
-      perform_pending_instantiations_v,
-      run_loop_pass_v,
+      instantiate_function_v, parse_class_v,
+      instantiate_class_v,    opt_module_v,
+      parse_template_v,       opt_function_v,
+      per_module_passes_v,    perform_pending_instantiations_v,
+      // run_loop_pass_v,
       code_gen_passes_v,
       code_gen_function_v,
-      per_function_passes_v,
+      // per_function_passes_v,
   };
+
 
   auto const &[name, entries] = cat;
   sp::Plot plot;
