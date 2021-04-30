@@ -1,57 +1,46 @@
 project(benchmarks)
 
-set(CMAKE_CXX_STANDARD 20)
-
 include(cmake/benchmarking.cmake)
 
+set(CMAKE_CXX_STANDARD 20)
+
 # ==============================================================================
-# Rule of Chiel benchmarks
+# numbered_structs - Numbered structs
+
+add_benchmark_range("numbered_structs.template"
+  "cases/numbered_structs/template.cpp"
+  1 256 1)
+
+add_benchmark_range("numbered_structs.non_template"
+  "cases/numbered_structs/non_template.cpp"
+  1 256 1)
+
 # ==============================================================================
+# variadic_sum - Compute sum of constexpr integers
 
-# add_benchmark_range("chiel.00_sfinae"
-#   "chiel/00_sfinae.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.01_no_sfinae"
-#   "chiel/01_no_sfinae.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.10_function_template_instantiation"
-#   "chiel/10_function_template_instantiation.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.20_type_instantiation"
-#   "chiel/20_type_instantiation.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.30_alias_call"
-#   "chiel/30_alias_call.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.40_type_parameter_addition"
-#   "chiel/40_type_parameter_addition.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.50_alias_call_parameter_addition"
-#   "chiel/50_alias_call_parameter_addition.cpp"
-#   16 256 16)
-
-# add_benchmark_range("chiel.60_memoized_type_lookup"
-#   "chiel/60_memoized_type_lookup.cpp"
-#   16 256 16)
-
-add_benchmark_range("core.variadic_sum.expansion"
-  "core/variadic_sum.expansion.cpp"
+add_benchmark_range("variadic_sum.expansion"
+  "cases/variadic_sum/expansion.cpp"
   1 256 1)
 
-add_benchmark_range("core.variadic_sum.recursive"
-  "core/variadic_sum.recursive.cpp"
+add_benchmark_range("variadic_sum.recursive"
+  "cases/variadic_sum/recursive.cpp"
   1 256 1)
 
-add_benchmark_range("core.function_selection.enable_if"
-  "core/function_selection.enable_if.cpp"
+# ==============================================================================
+# function_selection - Compile-time function dispatch
+
+add_benchmark_range("function_selection.enable_if"
+  "cases/function_selection/enable_if.cpp"
   1 256 1)
 
-add_benchmark_range("core.function_selection.if_constexpr"
-  "core/function_selection.if_constexpr.cpp"
+add_benchmark_range("function_selection.enable_if_t"
+  "cases/function_selection/enable_if_t.cpp"
+  1 256 1)
+
+add_benchmark_range("function_selection.if_constexpr"
+  "cases/function_selection/if_constexpr.cpp"
+  1 256 1)
+
+add_benchmark_range("function_selection.control"
+  "cases/function_selection/control.cpp"
   1 256 1)

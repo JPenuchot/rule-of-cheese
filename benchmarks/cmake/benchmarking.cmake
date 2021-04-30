@@ -64,7 +64,7 @@ function(add_benchmark_range name source begin end step)
 
   add_custom_target("${name}-graph"
     COMMAND
-    benchmark-grapher graphs "${PROJECT_BINARY_DIR}/${name}"
+    benchmark-grapher "graphs" "${name}"
     DEPENDS "${name}-all")
 endfunction(add_benchmark_range)
 
