@@ -14,7 +14,7 @@ std::ostream &to_csv(std::ostream &o, entry_t const &e) {
   return o;
 }
 
-std::ostream &to_csv(std::ostream &o, categories_t const &cats) {
+std::ostream &to_csv(std::ostream &o, category_t const &cats) {
   o << "category,"
        "name,"
        "execute_compiler,"

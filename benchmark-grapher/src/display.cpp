@@ -28,7 +28,7 @@
 
 namespace grapher {
 
-sciplot::Plot make_plot(category_t const &cat) {
+sciplot::Plot make_plot(benchmark_t const &cat) {
   namespace sp = sciplot;
 
   // Select what to plot:
@@ -53,8 +53,8 @@ sciplot::Plot make_plot(category_t const &cat) {
   sp::Plot plot;
 
   // Adjust if graph doesn't fit or looks weird
-  constexpr std::size_t plot_w = 800;
-  constexpr std::size_t plot_h = 400;
+  constexpr std::size_t plot_w = 1000;
+  constexpr std::size_t plot_h = 500;
 
   plot.legend().atOutsideRightTop().title("Time scopes:");
   plot.size(plot_w, plot_h);
@@ -97,11 +97,11 @@ sciplot::Plot make_plot(category_t const &cat) {
   return plot;
 }
 
-void graph(categories_t const &cats, std::filesystem::path const &p) {
+void graph(category_t const &cats, std::filesystem::path const &p) {
   namespace sp = sciplot;
   std::vector<sp::Plot> plots;
 
-  for (category_t const &cat : cats) {
+  for (benchmark_t const &cat : cats) {
     auto const &[name, entries] = cat;
     if (entries.empty()) {
       std::cout << "Warning: category " << name << " is empty.\n";

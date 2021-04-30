@@ -165,9 +165,9 @@ constexpr std::string_view get_measure_name(measure_kind_t m) {
 }
 
 /// Benchmark category
-using category_t = std::tuple<std::string, std::vector<entry_t>>;
+using benchmark_t = std::tuple<std::string, std::vector<entry_t>>;
 
 /// Benchmark categories
-using categories_t = std::vector<category_t>;
+using category_t = std::vector<benchmark_t>;
 
 } // namespace grapher
