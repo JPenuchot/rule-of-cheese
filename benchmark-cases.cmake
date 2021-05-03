@@ -56,10 +56,3 @@ ctbench_add_graphs(function_selection-graph
   function_selection.enable_if_t
   function_selection.if_constexpr
   function_selection.control)
-
-# ==============================================================================
-
-add_custom_target(all-graphs DEPENDS
-  numbered_structs-graph
-  variadic_sum-graph
-  function_selection-graph)
