@@ -1,0 +1,3 @@
+[submodule "external/ctbench"]
+	path = external/ctbench
+	url = https://github.com/jpenuchot/ctbench
