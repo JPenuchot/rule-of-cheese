@@ -14,7 +14,8 @@ ctbench_add_benchmark(numbered_structs.non_template
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP})
 
 ctbench_add_graphs(numbered_structs-graph
-    "numbered_structs.template;numbered_structs.non_template")
+  numbered_structs.template
+  numbered_structs.non_template)
 
 # ==============================================================================
 # variadic_sum - Compute sum of constexpr integers
@@ -28,7 +29,8 @@ ctbench_add_benchmark(variadic_sum.recursive
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP})
 
 ctbench_add_graphs(variadic_sum-graph
-  "variadic_sum.expansion;variadic_sum.recursive")
+  variadic_sum.expansion
+  variadic_sum.recursive)
 
 # ==============================================================================
 # function_selection - Compile-time function dispatch
@@ -50,8 +52,10 @@ ctbench_add_benchmark(function_selection.control
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP})
 
 ctbench_add_graphs(function_selection-graph
-"function_selection.enable_if;function_selection.enable_if_t;function_selection.if_constexpr;function_selection.control")
-
+  function_selection.enable_if
+  function_selection.enable_if_t
+  function_selection.if_constexpr
+  function_selection.control)
 
 # ==============================================================================
 

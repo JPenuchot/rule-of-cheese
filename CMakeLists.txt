@@ -10,11 +10,7 @@ if(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
     "C++ compiler has to be Clang. Current compiler: ${CMAKE_CXX_COMPILER_ID}")
 endif(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
 
-include(FetchContent)
-FetchContent_Declare(
-  ctbench
-  GIT_REPOSITORY https://github.com/jpenuchot/ctbench.git
-  GIT_TAG        origin/main)
-FetchContent_MakeAvailable(ctbench)
+# Including ctbench
+include(cmake/ctbench.cmake)
 
 include(benchmark-cases.cmake)
