@@ -10,6 +10,7 @@ if(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
     "C++ compiler has to be Clang. Current compiler: ${CMAKE_CXX_COMPILER_ID}")
 endif(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
 
-add_subdirectory(ctbench)
+# Adding ctbench
+add_subdirectory(external/ctbench)
 
 include(benchmark-cases.cmake)
