@@ -4,13 +4,12 @@ project(rule-of-cheese)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 20)
 
-option(ROC_ENABLE_TESTING "Enable testing." 0)
+# First things first: checking for Clang
+if(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
+  message(FATAL_ERROR
+    "C++ compiler has to be Clang. Current compiler: ${CMAKE_CXX_COMPILER_ID}")
+endif(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
 
-if(ROC_ENABLE_TESTING)
-  enable_testing()
-endif(ROC_ENABLE_TESTING)
+add_subdirectory(ctbench)
 
-add_subdirectory(tooling)
-add_subdirectory(benchmark-grapher)
-
-add_subdirectory(benchmarks)
+include(benchmark-cases.cmake)

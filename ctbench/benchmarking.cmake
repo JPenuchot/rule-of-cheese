@@ -1,11 +1,8 @@
 ### ============================================================================
 ### benchmarking.cmake
 ###
-### Useful functions for benchmarking.
+### Functions for automated benchmark declarations.
 ### ============================================================================
-
-add_custom_target(benchmark-all)
-add_custom_target(graph-all)
 
 # This is mostly because Boost Preprocessor is widely used across benchmarks
 find_package(Boost REQUIRED)
@@ -22,13 +19,12 @@ find_package(Boost REQUIRED)
 function(add_compile_benchmark target_name output source size)
   add_library(${target_name} OBJECT EXCLUDE_FROM_ALL ${source})
   target_include_directories(${target_name} PUBLIC "../include")
-  add_dependencies(${target_name} time-trace-wrapper)
 
   # Setting time-trace-wrapper as a compiler launcher
   set_target_properties(${target_name}
     PROPERTIES
       CXX_COMPILER_LAUNCHER
-        "${CMAKE_BINARY_DIR}/tooling/time-trace-wrapper;${output}")
+        "ctbench/time-trace-wrapper/time-trace-wrapper;${output}")
 
   # Pass benchmark size
   set_target_properties(${target_name}
@@ -37,8 +33,6 @@ function(add_compile_benchmark target_name output source size)
 
   # Boost Preprocessor
   target_include_directories(${target_name} PUBLIC Boost_INCLUDE_DIRS)
-
-  add_dependencies(benchmark-all ${target_name})
 endfunction(add_compile_benchmark)
 
 
@@ -52,7 +46,6 @@ endfunction(add_compile_benchmark)
 
 function(add_benchmark_range name source begin end step)
   add_custom_target("${name}-all")
-  add_dependencies(benchmark-all "${name}-all")
 
   foreach(size RANGE ${begin} ${end} ${step})
     add_compile_benchmark(
@@ -63,12 +56,7 @@ function(add_benchmark_range name source begin end step)
     add_dependencies("${name}-all" "_${name}-${size}")
   endforeach()
 
-  add_custom_target("${name}-graph"
-    COMMAND
-    benchmark-grapher "graphs" "${name}"
-    DEPENDS "${name}-all")
-
-  add_dependencies(graph-all "${name}-graph")
+  set(GRAPH_TARGETS "${GRAPH_TARGETS};${name}")
 endfunction(add_benchmark_range)
 
 

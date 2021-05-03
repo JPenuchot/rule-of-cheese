@@ -4,7 +4,7 @@
   text<n> {}
 
 template <typename... Ts> auto print(Ts const &...) {
-  return (... + Ts::value);
+  return (0 + ... + Ts::value);
 }
 
 template <unsigned int N> struct some_struct {

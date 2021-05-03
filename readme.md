@@ -17,6 +17,12 @@ https://github.com/boostcon/cppnow_presentations_2017/blob/master/05-17-2017_wed
 - Adding a parameter to an alias call
 - Looking up a memoized type
 
+## Why `-ftime-trace`
+
+- allows us to have tighter data
+
+## `time-trace-wrapper`
+
 ## Notes on benchmarking
 
 Get yourself a tight benchmarking environment, follow
