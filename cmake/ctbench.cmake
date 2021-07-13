@@ -2,11 +2,11 @@
 # Set these ROC_CTBENCH_GIT_TAG and ROC_CTBENCH_GIT_REPOSITORY
 
 if(NOT ROC_CTBENCH_GIT_TAG)
-  set(ROC_CTBENCH_GIT_TAG "dev")
+  set(ROC_CTBENCH_GIT_TAG main)
 endif(NOT ROC_CTBENCH_GIT_TAG)
 
 if(NOT ROC_CTBENCH_GIT_REPOSITORY)
-  set(ROC_CTBENCH_GIT_REPOSITORY "https://github.com/JPenuchot/ctbench.git")
+  set(ROC_CTBENCH_GIT_REPOSITORY https://github.com/JPenuchot/ctbench.git)
 endif(NOT ROC_CTBENCH_GIT_REPOSITORY)
 
 # ==============================================================================
