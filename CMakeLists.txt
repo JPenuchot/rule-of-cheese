@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.21)
 project(rule-of-cheese)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
