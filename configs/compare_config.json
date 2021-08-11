@@ -1,0 +1,48 @@
+{
+  "height": 500,
+  "legend_title": "Timings",
+  "matchers": [
+    {
+      "name": "Total ExecuteCompiler"
+    },
+    {
+      "name": "Total Frontend"
+    },
+    {
+      "name": "Total Source"
+    },
+    {
+      "name": "Total ParseClass"
+    },
+    {
+      "name": "Total InstantiateClass"
+    },
+    {
+      "name": "Total Backend"
+    },
+    {
+      "name": "Total ParseTemplate"
+    },
+    {
+      "name": "Total OptModule"
+    },
+    {
+      "name": "Total CodeGenPasses"
+    },
+    {
+      "name": "Total PerModulePasses"
+    },
+    {
+      "name": "Total PerFunctionPasses"
+    },
+    {
+      "name": "Total PerformPendingInstantiations"
+    }
+  ],
+  "name_json_pointer": "/name",
+  "plot_file_extension": ".svg",
+  "value_json_pointer": "/dur",
+  "width": 1500,
+  "xlabel": "Benchmark size factor",
+  "ylabel": "Time (µs)"
+}
