@@ -1,9 +1,9 @@
 set(ROC_BENCHMARK_START 0)
-set(ROC_BENCHMARK_STOP 16)
+set(ROC_BENCHMARK_STOP 32)
 set(ROC_BENCHMARK_STEP 1)
-set(ROC_BENCHMARK_ITERATIONS 1)
+set(ROC_BENCHMARK_ITERATIONS 9)
 
-# ctbench_graph_category(category plotter config)
+# ctbench_add_graph(category plotter config)
 # ctbench_add_benchmark(name source begin end step iterations)
 
 # ==============================================================================
@@ -19,9 +19,9 @@ ctbench_add_benchmark(numbered_structs.non_template
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
   ${ROC_BENCHMARK_ITERATIONS})
 
-ctbench_graph_category(numbered_structs-graph
-  stack
-  ${CMAKE_CURRENT_SOURCE_DIR}/config.json
+ctbench_add_graph(numbered_structs-graph
+  compare
+  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
   numbered_structs.template
   numbered_structs.non_template)
 
@@ -38,9 +38,9 @@ ctbench_add_benchmark(variadic_sum.recursive
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
   ${ROC_BENCHMARK_ITERATIONS})
 
-ctbench_graph_category(variadic_sum-graph
-  stack
-  ${CMAKE_CURRENT_SOURCE_DIR}/config.json
+ctbench_add_graph(variadic_sum-graph
+  compare
+  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
   variadic_sum.expansion
   variadic_sum.recursive)
 
@@ -67,10 +67,13 @@ ctbench_add_benchmark(function_selection.control
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
   ${ROC_BENCHMARK_ITERATIONS})
 
-ctbench_graph_category(function_selection-graph
-  stack
-  ${CMAKE_CURRENT_SOURCE_DIR}/config.json
+ctbench_add_graph(function_selection-graph
+  compare
+  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
   function_selection.enable_if
   function_selection.enable_if_t
   function_selection.if_constexpr
   function_selection.control)
+
+# ==============================================================================
+# parameter_list_passing - Passing parameter packs
