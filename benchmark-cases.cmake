@@ -21,7 +21,7 @@ ctbench_add_benchmark(numbered_structs.non_template
 
 ctbench_add_graph(numbered_structs-graph
   compare
-  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
   numbered_structs.template
   numbered_structs.non_template)
 
@@ -40,7 +40,7 @@ ctbench_add_benchmark(variadic_sum.recursive
 
 ctbench_add_graph(variadic_sum-graph
   compare
-  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
   variadic_sum.expansion
   variadic_sum.recursive)
 
@@ -69,7 +69,7 @@ ctbench_add_benchmark(function_selection.control
 
 ctbench_add_graph(function_selection-graph
   compare
-  ${CMAKE_CURRENT_SOURCE_DIR}/compare_config.json
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
   function_selection.enable_if
   function_selection.enable_if_t
   function_selection.if_constexpr
