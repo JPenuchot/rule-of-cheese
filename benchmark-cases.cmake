@@ -33,6 +33,11 @@ ctbench_add_benchmark(variadic_sum.expansion
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
   ${ROC_BENCHMARK_ITERATIONS})
 
+ctbench_add_benchmark(variadic_sum.preunrolled_expansion
+  cases/variadic_sum/expansion.cpp
+  ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
+  ${ROC_BENCHMARK_ITERATIONS})
+
 ctbench_add_benchmark(variadic_sum.recursive
   cases/variadic_sum/recursive.cpp
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
@@ -43,6 +48,11 @@ ctbench_add_graph(variadic_sum-graph
   ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
   variadic_sum.expansion
   variadic_sum.recursive)
+
+# ==============================================================================
+# tag_dispatch - Dispatching function given a discrete number of properties
+
+# TODO
 
 # ==============================================================================
 # function_selection - Compile-time function dispatch
@@ -77,3 +87,23 @@ ctbench_add_graph(function_selection-graph
 
 # ==============================================================================
 # parameter_list_passing - Passing parameter packs
+
+# TODO
+
+# ==============================================================================
+# if_constexpr_case_order - ...
+
+# TODO
+
+# ==============================================================================
+# symbol_length - Studying impact of symbol length on compile time
+
+# ctbench_add_benchmark(symbol_length.string_size
+#   cases/function_selection/string_size.cpp
+#   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
+#   ${ROC_BENCHMARK_ITERATIONS})
+
+# ctbench_add_benchmark(symbol_length.imbrication
+#   cases/function_selection/imbrication.cpp
+#   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
+#   ${ROC_BENCHMARK_ITERATIONS})
