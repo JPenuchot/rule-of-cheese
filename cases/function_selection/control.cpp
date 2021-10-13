@@ -1,17 +1,13 @@
 /// \file
-/// Compile-time function selection - if_constexpr
+/// Compile-time function selection - control
 ///
-/// Benchmark for compile-time function selection using if_constexpr
-
-#include <type_traits>
+/// No function selection, just here for the sake of comparison.
 
 #include <boost/preprocessor/repetition/repeat.hpp>
 
 #define FOO_MAX 16
 
-template <int N> constexpr int foo() {
-    return N;
-}
+template <int N> constexpr int foo() { return N; }
 
 template <int N> constexpr int sum() {
   int i = 0;

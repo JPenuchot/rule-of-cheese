@@ -3,8 +3,6 @@
 ///
 /// Benchmark for compile-time function selection using if_constexpr
 
-#include <type_traits>
-
 #include <boost/preprocessor/repetition/repeat.hpp>
 
 #define FOO_MAX 16
