@@ -3,6 +3,8 @@ set(ROC_BENCHMARK_STOP 32)
 set(ROC_BENCHMARK_STEP 1)
 set(ROC_BENCHMARK_ITERATIONS 9)
 
+set(CTBENCH_TIME_TRACE_GRANULARITY 1)
+
 # ctbench_add_graph(category plotter config)
 # ctbench_add_benchmark(name source begin end step iterations)
 
@@ -20,7 +22,7 @@ ctbench_add_benchmark(numbered_structs.non_template
   ${ROC_BENCHMARK_ITERATIONS})
 
 ctbench_add_graph(numbered_structs-graph
-  compare
+  stack
   ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
   numbered_structs.template
   numbered_structs.non_template)
@@ -77,13 +79,42 @@ ctbench_add_benchmark(function_selection.control
   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
   ${ROC_BENCHMARK_ITERATIONS})
 
-ctbench_add_graph(function_selection-graph
+ctbench_add_benchmark(function_selection.requires
+  cases/function_selection/requires.cpp
+  ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
+  ${ROC_BENCHMARK_ITERATIONS})
+
+ctbench_add_graph(function_selection-feature_comparison-graph
   compare
-  ${CMAKE_CURRENT_SOURCE_DIR}/configs/compare_config.json
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/function_selection/feature_comparison.json
   function_selection.enable_if
   function_selection.enable_if_t
   function_selection.if_constexpr
-  function_selection.control)
+  function_selection.control
+  function_selection.requires)
+
+ctbench_add_graph(function_selection-front_back-graph
+  stack
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/function_selection/front_back.json
+  function_selection.enable_if
+  function_selection.enable_if_t
+  function_selection.if_constexpr
+  function_selection.control
+  function_selection.requires)
+
+ctbench_add_graph(function_selection-front-graph
+  stack
+  ${CMAKE_CURRENT_SOURCE_DIR}/configs/function_selection/front.json
+  function_selection.enable_if
+  function_selection.enable_if_t
+  function_selection.if_constexpr
+  function_selection.control
+  function_selection.requires)
+
+add_custom_target(function_selection-all-graph DEPENDS
+  function_selection-feature_comparison-graph
+  function_selection-front_back-graph
+  function_selection-front-graph)
 
 # ==============================================================================
 # parameter_list_passing - Passing parameter packs
@@ -107,3 +138,6 @@ ctbench_add_graph(function_selection-graph
 #   cases/function_selection/imbrication.cpp
 #   ${ROC_BENCHMARK_START} ${ROC_BENCHMARK_STOP} ${ROC_BENCHMARK_STEP}
 #   ${ROC_BENCHMARK_ITERATIONS})
+
+# ==============================================================================
+# enable_if vs requires
