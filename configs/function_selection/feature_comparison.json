@@ -1,4 +1,5 @@
 {
+  "plotter":"compare",
   "draw_average": true,
   "draw_points": true,
   "group_descriptors": [
