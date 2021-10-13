@@ -1,0 +1,32 @@
+{
+  "group_descriptors": [
+    {
+      "name": "Backend",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total Backend",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Frontend",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total Frontend",
+          "type": "streq"
+        }
+      ]
+    }
+  ],
+  "width": 1500,
+  "height": 500,
+  "legend_title": "Timings",
+  "plot_file_extension": ".svg",
+  "xlabel": "Benchmark size factor",
+  "ylabel": "Time (µs)",
+  "name_json_pointer": "/name",
+  "value_json_pointer": "/dur"
+}

@@ -1,0 +1,22 @@
+{
+  "group_descriptors": [
+    {
+      "name": "TODO",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "regex": "*",
+          "type": "regex"
+        }
+      ]
+    }
+  ],
+  "width": 1500,
+  "height": 500,
+  "legend_title": "Timings",
+  "plot_file_extension": ".svg",
+  "xlabel": "Benchmark size factor",
+  "ylabel": "Time (µs)",
+  "name_json_pointer": "/name",
+  "value_json_pointer": "/dur"
+}

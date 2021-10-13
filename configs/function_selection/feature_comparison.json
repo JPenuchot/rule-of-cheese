@@ -1,0 +1,143 @@
+{
+  "draw_average": true,
+  "draw_points": true,
+  "group_descriptors": [
+    {
+      "name": "Total ExecuteCompiler",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total ExecuteCompiler",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total Frontend",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total Frontend",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total Source",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total Source",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total ParseClass",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total ParseClass",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total InstantiateClass",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total InstantiateClass",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total InstantiateFunction",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total InstantiateFunction",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total Backend",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total Backend",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total ParseTemplate",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total ParseTemplate",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total OptModule",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total OptModule",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total CodeGenPasses",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total CodeGenPasses",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total PerModulePasses",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total PerModulePasses",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total PerFunctionPasses",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total PerFunctionPasses",
+          "type": "streq"
+        }
+      ]
+    },
+    {
+      "name": "Total PerformPendingInstantiations",
+      "constraints": [
+        {
+          "pointer": "/name",
+          "string": "Total PerformPendingInstantiations",
+          "type": "streq"
+        }
+      ]
+    }
+  ],
+  "plot_file_extension": ".svg",
+  "value_json_pointer": "/dur",
+  "width": 1500,
+  "height": 500,
+  "legend_title": "Timings",
+  "xlabel": "Benchmark size factor",
+  "ylabel": "Time (µs)"
+}
