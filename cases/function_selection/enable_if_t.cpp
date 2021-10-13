@@ -1,16 +1,21 @@
 /// \file
-/// Compile-time function selection - if_constexpr
+/// Compile-time function selection - enable_if_t
 ///
-/// Benchmark for compile-time function selection using enable_if
-
-#include <type_traits>
+/// Benchmark for compile-time function selection using enable_if_t
 
 #include <boost/preprocessor/repetition/repeat.hpp>
 
 #define FOO_MAX 16
 
+template <bool, typename T> struct enable_if {};
+template <typename T> struct enable_if<true, T> { using type = T; };
+template <typename T> struct enable_if<false, T> {};
+
+template <bool B, typename T>
+using enable_if_t = typename enable_if<B, T>::type;
+
 #define DECL(z, i, nope)                                                       \
-  template <int N> constexpr std::enable_if_t<N % FOO_MAX == i, int> foo() {   \
+  template <int N> constexpr enable_if_t<N % FOO_MAX == i, int> foo() {        \
     return N * i;                                                              \
   }
 
