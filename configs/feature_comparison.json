@@ -1,11 +1,11 @@
 {
   "plotter":"compare",
   "draw_average": true,
-  "draw_points": true,
+  "draw_points": false,
   "group_descriptors": [
     {
       "name": "Total ExecuteCompiler",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total ExecuteCompiler",
@@ -15,7 +15,7 @@
     },
     {
       "name": "Total Frontend",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total Frontend",
@@ -25,7 +25,7 @@
     },
     {
       "name": "Total Source",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total Source",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Total ParseClass",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total ParseClass",
@@ -45,7 +45,7 @@
     },
     {
       "name": "Total InstantiateClass",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total InstantiateClass",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Total InstantiateFunction",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total InstantiateFunction",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Total Backend",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total Backend",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Total ParseTemplate",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total ParseTemplate",
@@ -85,7 +85,7 @@
     },
     {
       "name": "Total OptModule",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total OptModule",
@@ -95,7 +95,7 @@
     },
     {
       "name": "Total CodeGenPasses",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total CodeGenPasses",
@@ -105,7 +105,7 @@
     },
     {
       "name": "Total PerModulePasses",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total PerModulePasses",
@@ -115,7 +115,7 @@
     },
     {
       "name": "Total PerFunctionPasses",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total PerFunctionPasses",
@@ -125,7 +125,7 @@
     },
     {
       "name": "Total PerformPendingInstantiations",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total PerformPendingInstantiations",

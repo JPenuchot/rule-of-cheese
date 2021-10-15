@@ -3,7 +3,7 @@
   "group_descriptors": [
     {
       "name": "Backend",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total Backend",
@@ -13,7 +13,7 @@
     },
     {
       "name": "Frontend",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
           "string": "Total Frontend",

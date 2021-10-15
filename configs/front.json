@@ -3,10 +3,10 @@
   "group_descriptors": [
     {
       "name": "TODO",
-      "constraints": [
+      "predicates": [
         {
           "pointer": "/name",
-          "regex": "*",
+          "regex": ".*",
           "type": "regex"
         }
       ]
