@@ -16,5 +16,5 @@ include(FetchContent)
 FetchContent_Declare(
   ctbench
   GIT_REPOSITORY ${ROC_CTBENCH_GIT_REPOSITORY}
-  GIT_TAG        ${ROC_CTBENCH_GIT_TAG})
+  GIT_TAG ${ROC_CTBENCH_GIT_TAG})
 FetchContent_MakeAvailable(ctbench)

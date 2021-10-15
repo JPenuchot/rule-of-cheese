@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD 20)
 
 # First things first: checking for Clang
 if(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
-  message(FATAL_ERROR
-    "C++ compiler has to be Clang. Current compiler: ${CMAKE_CXX_COMPILER_ID}")
+  message(
+    FATAL_ERROR
+      "C++ compiler has to be Clang. Current compiler: ${CMAKE_CXX_COMPILER_ID}"
+  )
 endif(NOT ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang")
 
 # Including ctbench
