@@ -7,13 +7,16 @@
 
 #define FOO_MAX 16
 
+// Single fallthrough case
 template <int N> constexpr int foo() { return N; }
 
-template <int N> constexpr int sum() {
+int sum() {
   int i = 0;
 
+  // Calling foo<n>(), BENCHMARK_SIZE times
 #define CALL(z, n, var) i += foo<n>();
-
   BOOST_PP_REPEAT(BENCHMARK_SIZE, CALL, i);
+#undef CALL
+
   return i;
 }
