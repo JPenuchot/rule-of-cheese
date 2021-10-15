@@ -2,12 +2,12 @@
   "plotter":"stack",
   "group_descriptors": [
     {
-      "name": "TODO",
+      "name": "Frontend",
       "predicates": [
         {
           "pointer": "/name",
-          "regex": ".*",
-          "type": "regex"
+          "string": "Total Frontend",
+          "type": "streq"
         }
       ]
     }
