@@ -5,6 +5,15 @@ set(ROC_BENCHMARK_ITERATIONS 9)
 
 set(CTBENCH_TIME_TRACE_GRANULARITY 1)
 
+add_compile_options(
+  -Wall
+  -Wextra
+  -Werror
+  -Wnull-dereference
+  -Wold-style-cast
+  -Wdouble-promotion
+  -Wshadow)
+
 # set(CONFIGS "${CMAKE_CURRENT_SOURCE_DIR}/configs")
 
 # ==============================================================================
