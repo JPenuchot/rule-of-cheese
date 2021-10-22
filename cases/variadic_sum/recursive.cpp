@@ -5,9 +5,9 @@
 
 auto sum() { return 0; }
 
-template <typename T> auto sum(T const &e) { return T::value; }
+template <typename T> auto sum(T const &) { return T::value; }
 
-template <typename T, typename... Ts> auto sum(T const &e, Ts const &...Elts) {
+template <typename T, typename... Ts> auto sum(T const &, Ts const &...Elts) {
   return T::value + sum(Elts...);
 }
 

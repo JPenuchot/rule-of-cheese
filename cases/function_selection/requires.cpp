@@ -15,7 +15,7 @@ BOOST_PP_REPEAT(BENCHMARK_SIZE, DECL, FOO_MAX);
 #undef DECL
 
 int sum() {
-  int i;
+  int i = 0;
 
   // Calling foo<n>(), BENCHMARK_SIZE times
 #define CALL(z, n, nop) i += foo<n>();
